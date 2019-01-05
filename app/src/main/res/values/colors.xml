@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0d1a3a</color>
+    <color name="colorPrimaryDark">#000016</color>
+    <color name="colorAccent">#384065</color>
+
+    <color name="color_ticket_blue">#0D1A3A</color>
+    <color name="color_tag_pre_sale">#d1a37d47</color>
+</resources>

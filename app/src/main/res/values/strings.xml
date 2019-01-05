@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieDemo</string>
+    <string name="movie">Movie</string>
+    <string name="buy_ticket">Buy Ticket</string>
+    <string name="pre_sale">PRE-SALE</string>
+    <string name="search">Search</string>
+</resources>
