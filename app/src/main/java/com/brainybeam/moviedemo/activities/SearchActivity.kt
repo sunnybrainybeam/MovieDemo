@@ -14,9 +14,7 @@ import com.brainybeam.moviedemo.interfaces.ItemClickInterface
 import com.brainybeam.moviedemo.models.SearchData
 
 class SearchActivity : BaseAppCompactActivity(), ItemClickInterface {
-
-
-
+    
     private lateinit var binding: ActivitySearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
