@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="searchData"
+                type="com.brainybeam.moviedemo.models.SearchData"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:id="@+id/ll_recent_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10_dp">
+
+            <TextView
+                    android:id="@+id/tv_recent_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Search 1"
+                    android:textSize="18sp"
+                    android:text="@{searchData.title}"
+                    android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
+
