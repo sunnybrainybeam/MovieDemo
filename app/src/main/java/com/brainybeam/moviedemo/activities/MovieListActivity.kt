@@ -12,14 +12,16 @@ import com.brainybeam.moviedemo.fragments.ShowingMovieFragment
 
 class MovieListActivity : BaseAppCompactActivity() {
 
+    private lateinit var binding: ActivityMovieListBinding
+    var keyword: String = ""
+
     companion object {
-        fun start(context: Context) {
+        fun start(context: Context, keyword: String) {
             val intent = Intent(context, MovieListActivity::class.java)
+            intent.putExtra("KEYWORD", keyword)
             context.startActivity(intent)
         }
     }
-
-    private lateinit var binding: ActivityMovieListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,8 @@ class MovieListActivity : BaseAppCompactActivity() {
         binding = getViewBinding()
         setToolbar(binding.toolbarMovieList, getString(R.string.movie_list), true)
         setUpMovieListPager()
+        keyword = intent.getStringExtra("KEYWORD")
+        //keyword = "akash"
     }
 
     private fun setUpMovieListPager() {

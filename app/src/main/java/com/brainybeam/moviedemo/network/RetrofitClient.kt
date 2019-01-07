@@ -1,5 +1,6 @@
 package com.brainybeam.moviedemo.network
 
+import com.brainybeam.moviedemo.utility.Constant
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,7 +27,7 @@ object RetrofitClient {
         }
         httpClient.addNetworkInterceptor(loggingInterceptor)
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://easy-mock.com/mock/5c19c6ff64b4573fc81a61f3/movieapp/")
+            .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(httpClient.build())
             .build()

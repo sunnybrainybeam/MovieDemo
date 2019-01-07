@@ -12,7 +12,7 @@ abstract class RecyclerViewLoadMoreListener : RecyclerView.OnScrollListener() {
 
     private var lastVisibleItem: Int = 0
     private var totalItemCount: Int = 0
-    private var visibleThreshold = 5
+    private var visibleThreshold = 2
     private var mLayoutManager: RecyclerView.LayoutManager? = null
     private var isLoading: Boolean = false
 
@@ -57,6 +57,10 @@ abstract class RecyclerViewLoadMoreListener : RecyclerView.OnScrollListener() {
             }
         }
         return maxSize
+    }
+
+    fun setLoaded() {
+        isLoading = false
     }
 
     abstract fun onLoadMore()

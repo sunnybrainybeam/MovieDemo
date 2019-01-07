@@ -1,10 +1,19 @@
 package com.brainybeam.moviedemo.fragments
 
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.brainybeam.moviedemo.R
+import com.brainybeam.moviedemo.activities.MovieListActivity
 import com.brainybeam.moviedemo.adapters.MovieAdapter
 import com.brainybeam.moviedemo.baseStructures.BaseFragment
 import com.brainybeam.moviedemo.databinding.FragmentComingMovieBinding
+import com.brainybeam.moviedemo.models.MovieList
+import com.brainybeam.moviedemo.utility.Constant
+import com.brainybeam.moviedemo.utility.Utility
+import com.brainybeam.moviedemo.viewModels.MovieViewModel
+import com.brainybeam.moviedemo.viewUtils.RecyclerViewLoadMoreListener
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
@@ -13,6 +22,9 @@ import com.brainybeam.moviedemo.databinding.FragmentComingMovieBinding
 class ComingMovieFragment : BaseFragment() {
 
     private lateinit var binding: FragmentComingMovieBinding
+    private lateinit var mMovieViewModel: MovieViewModel
+    private lateinit var mRecyclerViewLoadMoreList: RecyclerViewLoadMoreListener
+    private var pageNo = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +34,45 @@ class ComingMovieFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding = getBinding()
-        binding.movieAdapter = MovieAdapter()
+        setUp()
+    }
+
+    private fun setUp() {
+        mRecyclerViewLoadMoreList = object : RecyclerViewLoadMoreListener() {
+            override fun onLoadMore() {
+                getComingMovieList(pageNo++)
+                binding.movieAdapter?.addLoadingView()
+            }
+        }
+        binding.rcvComingMovie.addOnScrollListener(mRecyclerViewLoadMoreList)
+        mMovieViewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
+        getComingMovieList(pageNo)
+    }
+
+    private fun getComingMovieList(pageNo: Int) {
+        if (Utility.isInternetConnected(context!!)) {
+            mMovieViewModel.getSearchMovieList((activity as MovieListActivity).keyword, pageNo).observe(this, Observer {
+                if (it != null) {
+                    binding.progressBarComingSoon.visibility = View.GONE
+                    if (it.success) {
+                        val movieList: MovieList = it.results as MovieList
+                        if (binding.movieAdapter != null) {
+                            binding.movieAdapter!!.removeLoadingView()
+                            mRecyclerViewLoadMoreList.setLoaded()
+                        }
+                        if (binding.movieAdapter == null) {
+                            binding.movieAdapter = MovieAdapter(movieList.upcomingMovieList)
+                        } else {
+                            binding.movieAdapter!!.addMovieData(movieList.upcomingMovieList)
+                        }
+                    } else {
+                        Utility.showToastMessage(context!!, it.message)
+                    }
+                }
+            })
+        } else {
+            binding.progressBarComingSoon.visibility = View.GONE
+            Utility.showToastMessage(context!!, Constant.INTERNET_ERROR)
+        }
     }
 }

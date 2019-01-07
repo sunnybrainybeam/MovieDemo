@@ -7,22 +7,32 @@ import com.google.gson.annotations.SerializedName
  * Created by BrainyBeam on 05-Jan-19.
  */
 data class MovieData(
+    @Expose
+    @SerializedName("id")
     val id: String,
+    @Expose
+    @SerializedName("title")
     val title: String,
     @Expose
     @SerializedName("genre_ids")
     val genreIds: ArrayList<GenreIds>,
     @Expose
     @SerializedName("age_category")
-    val appCategory: String,
-    val rate: String,
+    val ageCategory: String,
+    @Expose
+    @SerializedName("rate")
+    val rate: Float,
     @Expose()
     @SerializedName("release_date")
-    val releaseDate: String,
+    val releaseDate: Long,
     @Expose()
     @SerializedName("poster_path")
     val posterPath: String,
     @Expose()
     @SerializedName("presale_flag")
-    val preSaleFlag: Int
+    val preSaleFlag: Int,
+    @Expose()
+    @SerializedName("description")
+    val description: String,
+    var isLoadingView: Boolean = false
 )
