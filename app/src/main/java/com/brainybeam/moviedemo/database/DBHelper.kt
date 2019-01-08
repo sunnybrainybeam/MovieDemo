@@ -59,12 +59,11 @@ class DBHelper(
         }else{
             db.update(TABLE_SEARCH, values, "$COLUMN_TITLE='$title'", null)
         }
-        db.close()
     }
 
     private fun findHistory(title: String): SearchData? {
         val query =
-            "SELECT * FROM $TABLE_SEARCH WHERE $COLUMN_TITLE =  \"$title\""
+            "SELECT * FROM $TABLE_SEARCH WHERE $COLUMN_TITLE=\'$title'"
 
         val db = this.writableDatabase
 
@@ -72,15 +71,14 @@ class DBHelper(
 
         var searchData: SearchData? = null
 
-        if (cursor.moveToFirst()) {
+        if (cursor.count > 0) {
             cursor.moveToFirst()
+            searchData = SearchData()
             searchData?.title = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE))
             searchData?.timestamp = cursor.getLong(cursor.getColumnIndex(COLUMN_TIMESTAMP))
 
             cursor.close()
         }
-
-        db.close()
         return searchData
     }
 
@@ -95,7 +93,7 @@ class DBHelper(
         val cursor = db.rawQuery(query, null)
 
         if (cursor!=null && cursor.count > 0) {
-            for (i in 0 until cursor.count-1) {
+            for (i in 0 until cursor.count) {
                 cursor.moveToPosition(i);
 
                 var searchData = SearchData()
@@ -106,9 +104,6 @@ class DBHelper(
             }
             cursor.close()
         }
-
-        db.close()
         return searchList
     }
-
 }

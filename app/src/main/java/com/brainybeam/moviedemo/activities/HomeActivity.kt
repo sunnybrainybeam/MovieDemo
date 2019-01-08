@@ -1,5 +1,6 @@
 package com.brainybeam.moviedemo.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -120,7 +121,8 @@ class HomeActivity : BaseAppCompactActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item!!.itemId == R.id.action_search) {
-            Utility.showToastMessage(this, getString(R.string.search))
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
     }

@@ -12,7 +12,8 @@
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp">
 
         <LinearLayout
                 android:id="@+id/ll_recent_search"
@@ -33,4 +34,3 @@
 
     </androidx.cardview.widget.CardView>
 </layout>
-

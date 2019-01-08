@@ -17,8 +17,9 @@
             tools:context=".activities.SearchActivity">
 
         <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="?attr/actionBarSize" >
 
             <RelativeLayout
                     android:layout_width="match_parent"
@@ -31,26 +32,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimen_16_dp"
-                        app:srcCompat="@drawable/ic_arrow_back"/>
-
+                        app:srcCompat="@drawable/ic_arrow_back"
+                        android:contentDescription="@null"
+                        android:onClick="onClick"/>
 
                 <EditText
-                        android:id="@+id/edt_feed_search"
+                        android:id="@+id/edt_search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/dimen_16_dp"
                         android:layout_toEndOf="@+id/iv_back_feed_search"
                         android:background="@drawable/search_background"
-                        android:drawableStart="@drawable/ic_search"
+                        android:drawableStart="@drawable/ic_search_black"
                         android:drawablePadding="@dimen/dimen_10_dp"
                         android:hint="@string/search"
-                        android:inputType="textCapSentences"
+                        android:inputType="text"
                         android:paddingStart="@dimen/dimen_15_dp"
                         android:paddingEnd="@dimen/dimen_10_dp"
                         android:singleLine="true"
                         android:textSize="16sp"
-                        android:drawableTint="@color/colorPrimary"/>
+                        android:imeOptions="actionSearch" />
 
                 <ImageView
                         android:id="@+id/iv_clear_search"
@@ -61,7 +63,8 @@
                         android:layout_marginEnd="25dp"
                         app:srcCompat="@drawable/ic_clear"
                         android:visibility="gone"
-                        tools:visibility="visible"/>
+                        tools:visibility="visible"
+                        android:onClick="onClick"/>
 
             </RelativeLayout>
 
@@ -72,7 +75,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 bind:adapter="@{searchAdapter}"
-                tools:listitem="@layout/raw_search_list"/>
+                tools:listitem="@layout/raw_search_list"
+                android:visibility="visible"/>
+
+        <TextView
+                android:id="@+id/txt_no_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20_dp"
+                android:text="@string/no_recent_search"
+                android:gravity="center"/>
 
     </LinearLayout>
 

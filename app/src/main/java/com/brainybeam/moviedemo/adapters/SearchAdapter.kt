@@ -23,6 +23,12 @@ class SearchAdapter(private var listSearch: ArrayList<SearchData>, private var i
         return listSearch.size
     }
 
+    fun refreshData(list: ArrayList<SearchData>){
+        listSearch.clear()
+        listSearch.addAll(list)
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         val searchData = listSearch[position]
         val binding: RawSearchListBinding = holder.getBinding()
