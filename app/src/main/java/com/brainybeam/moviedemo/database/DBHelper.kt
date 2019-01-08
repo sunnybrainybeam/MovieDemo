@@ -9,7 +9,7 @@ import com.brainybeam.moviedemo.models.SearchData
 class DBHelper(
 
     context: Context, name: String?,
-    factory: SQLiteDatabase.CursorFactory?, version: Int
+    factory: SQLiteDatabase.CursorFactory?
 ) :
     SQLiteOpenHelper(
         context, DATABASE_NAME,
