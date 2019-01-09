@@ -10,10 +10,13 @@ import androidx.fragment.app.Fragment
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
+ *
+ * All fragments used in this project are derived from this BaseFragment class.
+ * This class is for generalization of fragments.
  */
 open class BaseFragment : Fragment() {
 
-    private val TAG = BaseFragment::class.java.simpleName
     private var layoutId: Int = 0
     private lateinit var binding: ViewDataBinding
 

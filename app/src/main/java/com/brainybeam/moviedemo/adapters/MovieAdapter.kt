@@ -13,6 +13,10 @@ import com.brainybeam.moviedemo.utility.Utility
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
+ *
+ * This is custom adapter class for movie listing screen with paging.
+ * display movie list for both now showing movie list and upcoming movie list.
  */
 class MovieAdapter(listMovie: ArrayList<MovieData?>) : RecyclerView.Adapter<BaseViewHolder>() {
 

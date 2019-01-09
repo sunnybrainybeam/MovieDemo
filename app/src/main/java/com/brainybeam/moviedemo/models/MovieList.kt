@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 /**
  * Created by BrainyBeam on 07-Jan-19.
+ * @author BrainyBeam
  */
 
 data class MovieList(

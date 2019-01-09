@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Text sizes -->
+    <dimen name="sp_10">12sp</dimen>
+    <dimen name="sp_12">16sp</dimen>
+    <dimen name="sp_14">18sp</dimen>
+    <dimen name="sp_16">20sp</dimen>
+    <dimen name="sp_18">22sp</dimen>
+    <dimen name="sp_20">24sp</dimen>
+    <dimen name="sp_22">26sp</dimen>
+    <dimen name="sp_24">28sp</dimen>
+    <dimen name="sp_26">30sp</dimen>
+    <dimen name="sp_28">32sp</dimen>
+    <dimen name="sp_30">34sp</dimen>
+    <dimen name="sp_32">38sp</dimen>
+    <dimen name="sp_40">50sp</dimen>
+    <dimen name="sp_50">65sp</dimen>
+
+    <!-- General dp values -->
+    <dimen name="dp_1">2dp</dimen>
+    <dimen name="dp_3">5dp</dimen>
+    <dimen name="dp_5">8dp</dimen>
+    <dimen name="dp_7">10dp</dimen>
+    <dimen name="dp_10">15dp</dimen>
+    <dimen name="dp_12">17dp</dimen>
+    <dimen name="dp_15">20dp</dimen>
+    <dimen name="dp_18">23dp</dimen>
+    <dimen name="dp_20">27dp</dimen>
+    <dimen name="dp_22">30dp</dimen>
+    <dimen name="dp_25">35dp</dimen>
+    <dimen name="dp_28">40dp</dimen>
+    <dimen name="dp_30">42dp</dimen>
+    <dimen name="dp_32">45dp</dimen>
+    <dimen name="dp_35">48dp</dimen>
+    <dimen name="dp_37">50dp</dimen>
+    <dimen name="dp_40">52dp</dimen>
+    <dimen name="dp_42">55dp</dimen>
+    <dimen name="dp_45">60dp</dimen>
+    <dimen name="dp_47">62dp</dimen>
+    <dimen name="dp_50">65dp</dimen>
+    <dimen name="dp_65">80dp</dimen>
+    <dimen name="dp_80">110dp</dimen>
+    <dimen name="dp_100">140dp</dimen>
+    <dimen name="dp_120" >170dp</dimen>
+    <dimen name="dp_150" >200dp</dimen>
+    <dimen name="dp_200" >250dp</dimen>
+
+</resources>

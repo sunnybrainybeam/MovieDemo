@@ -7,7 +7,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:context=".activities.HomeActivity">
+            tools:context=".activities.HomeActivity"
+            android:animateLayoutChanges="true">
 
         <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
@@ -21,25 +22,49 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
 
-
-            <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/view_pager_movie"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
 
-            <ProgressBar
-                    android:id="@+id/home_progress_bar"
-                    android:layout_width="wrap_content"
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/view_pager_movie"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                <ProgressBar
+                        android:id="@+id/home_progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+            </FrameLayout>
+
+            <TextView
+                    android:id="@+id/tv_movie_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"/>
+                    tools:text="Avengers"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@android:color/black" />
 
-        </FrameLayout>
+            <TextView
+                    android:id="@+id/tv_movie_genre"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Action"
+                    android:layout_marginBottom="@dimen/dp_65"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_16" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

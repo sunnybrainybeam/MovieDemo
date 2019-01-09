@@ -17,6 +17,8 @@ import com.brainybeam.moviedemo.viewUtils.RecyclerViewLoadMoreListener
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
+ * This class is for Upcoming Movies fragment.
  */
 
 class ComingMovieFragment : BaseFragment() {
@@ -26,6 +28,9 @@ class ComingMovieFragment : BaseFragment() {
     private lateinit var mRecyclerViewLoadMoreList: RecyclerViewLoadMoreListener
     private var pageNo = 1
 
+    /**
+     * This method is called when Fragment is created on screen.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setView(R.layout.fragment_coming_movie)
@@ -37,6 +42,9 @@ class ComingMovieFragment : BaseFragment() {
         setUp()
     }
 
+    /**
+     * This method setup pagination in movie list.
+     */
     private fun setUp() {
         mRecyclerViewLoadMoreList = object : RecyclerViewLoadMoreListener() {
             override fun onLoadMore() {
@@ -49,6 +57,9 @@ class ComingMovieFragment : BaseFragment() {
         getComingMovieList(pageNo)
     }
 
+    /**
+     * Retrieve upcoming movie list from list of all movies retrieved based on search.
+     */
     private fun getComingMovieList(pageNo: Int) {
         if (Utility.isInternetConnected(context!!)) {
             mMovieViewModel.getSearchMovieList((activity as MovieListActivity).keyword, pageNo).observe(this, Observer {

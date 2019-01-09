@@ -7,6 +7,10 @@ import java.util.ArrayList
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
+ *
+ * This class is custom adapter class for ViewPager in Movie listing screen.
+ * This class display tabs and enable swiping in movie listing screen.
  */
 class MovieListPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
 

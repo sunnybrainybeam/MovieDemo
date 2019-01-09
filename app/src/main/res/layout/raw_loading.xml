@@ -8,8 +8,8 @@
             android:orientation="vertical">
 
         <ProgressBar
-                android:layout_width="32dp"
-                android:layout_height="50dp"/>
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="@dimen/dp_50"/>
     </LinearLayout>
 
 </layout>

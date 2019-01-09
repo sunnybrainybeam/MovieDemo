@@ -12,6 +12,10 @@ import com.brainybeam.moviedemo.models.SearchData
 
 /**
  * Created by BrainyBeam on 07-Jan-19.
+ * @author BrainyBeam
+ *
+ * This class is custom adapter class for Search listing screen.
+ * This class display data in recent search list.
  */
 class SearchAdapter(private var listSearch: ArrayList<SearchData>, private var itemClickInterface: ItemClickInterface) : RecyclerView.Adapter<BaseViewHolder>() {
 
@@ -27,6 +31,12 @@ class SearchAdapter(private var listSearch: ArrayList<SearchData>, private var i
         listSearch.clear()
         listSearch.addAll(list)
         notifyDataSetChanged()
+    }
+
+    fun removeAt(position: Int, list: ArrayList<SearchData>) {
+        if(listSearch.size != list.size)
+            listSearch.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {

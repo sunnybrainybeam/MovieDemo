@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
  */
 open class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private lateinit var binding: ViewDataBinding

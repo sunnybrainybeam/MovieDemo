@@ -13,6 +13,10 @@ import java.lang.StringBuilder
 
 /**
  * Created by BrainyBeam on 05-Jan-19.
+ * @author BrainyBeam
+ *
+ * This is custom adapter for Home Screen.
+ * Display data in ViewPager in Home Screen.
  */
 class HomePagerAdapter(private val movieList: ArrayList<MovieData>) : PagerAdapter() {
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
@@ -33,7 +37,7 @@ class HomePagerAdapter(private val movieList: ArrayList<MovieData>) : PagerAdapt
             }
             genre.append(movieData.name)
         }
-        binding.tvMovieGenre.text = genre.toString()
+        //binding.tvMovieGenre.text = genre.toString()
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -46,5 +50,20 @@ class HomePagerAdapter(private val movieList: ArrayList<MovieData>) : PagerAdapt
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
+    }
+
+    fun getGenre(position: Int): String {
+        val genre = StringBuilder("")
+        for (movieData in movieList[position].genreIds) {
+            if (genre.length > 1) {
+                genre.append(" | ")
+            }
+            genre.append(movieData.name)
+        }
+        return genre.toString()
+    }
+
+    fun getTitle(position: Int): String {
+        return movieList[position].title
     }
 }
